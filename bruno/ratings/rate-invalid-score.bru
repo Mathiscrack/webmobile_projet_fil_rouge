@@ -1,0 +1,21 @@
+meta {
+  name: Rate place - invalid score
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/places/{{createdPlaceId}}/ratings
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{rater2AccessToken}}
+}
+
+body:json {
+  {
+    "score": 4
+  }
+}

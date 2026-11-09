@@ -1,0 +1,26 @@
+meta {
+  name: Create place - unknown category
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/places
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{contributorAccessToken}}
+}
+
+body:multipart-form {
+  photo: @file(files/sample-photo.jpg) @contentType(image/jpeg)
+  name: Spot categorie inconnue
+  latitude: 48.69
+  longitude: 6.18
+  categoryId: 999
+  hasWifi: true
+  hasPowerOutlets: false
+  noiseLevel: quiet
+}

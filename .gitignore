@@ -1,0 +1,8 @@
+# dépendances
+node_modules/
+
+# environnement
+.env
+
+# photos uploadées en local (hors Docker)
+uploads/

@@ -1,0 +1,34 @@
+meta {
+  name: Create place
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/places
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{contributorAccessToken}}
+}
+
+body:multipart-form {
+  photo: @file(files/sample-photo.jpg) @contentType(image/jpeg)
+  name: Test Spot Bruno
+  tips: Quelques conseils
+  latitude: 48.69
+  longitude: 6.18
+  categoryId: 1
+  hasWifi: true
+  hasPowerOutlets: false
+  noiseLevel: quiet
+}
+
+script:post-response {
+  if (res.body.success) {
+    bru.setEnvVar("createdPlaceId", res.body.data.id);
+    bru.setEnvVar("createdPlacePhotoPath", res.body.data.photoPath);
+  }
+}

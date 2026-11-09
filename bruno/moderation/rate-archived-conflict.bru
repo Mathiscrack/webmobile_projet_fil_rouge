@@ -1,0 +1,21 @@
+meta {
+  name: Rate place - archived place
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/places/{{createdPlaceId}}/ratings
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{moderatorAccessToken}}
+}
+
+body:json {
+  {
+    "score": 2
+  }
+}

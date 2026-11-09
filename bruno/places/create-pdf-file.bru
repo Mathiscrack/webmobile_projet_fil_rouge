@@ -1,0 +1,26 @@
+meta {
+  name: Create place - PDF file
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/places
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{contributorAccessToken}}
+}
+
+body:multipart-form {
+  photo: @file(files/sample-document.pdf) @contentType(application/pdf)
+  name: Spot avec un PDF
+  latitude: 48.69
+  longitude: 6.18
+  categoryId: 1
+  hasWifi: true
+  hasPowerOutlets: false
+  noiseLevel: quiet
+}

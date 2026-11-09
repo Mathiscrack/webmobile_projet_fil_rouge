@@ -1,0 +1,24 @@
+meta {
+  name: Login - rater3
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "rater3@topspot.dev",
+    "password": "rater3-demo-pwd"
+  }
+}
+
+script:post-response {
+  if (res.body.success) {
+    bru.setEnvVar("rater3AccessToken", res.body.data.accessToken);
+  }
+}

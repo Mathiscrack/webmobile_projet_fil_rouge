@@ -1,0 +1,21 @@
+meta {
+  name: Rate place - same user twice
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/places/{{createdPlaceId}}/ratings
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{rater2AccessToken}}
+}
+
+body:json {
+  {
+    "score": 2
+  }
+}

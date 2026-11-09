@@ -1,0 +1,26 @@
+meta {
+  name: Create place - invalid latitude
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/places
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{contributorAccessToken}}
+}
+
+body:multipart-form {
+  photo: @file(files/sample-photo.jpg) @contentType(image/jpeg)
+  name: Spot latitude invalide
+  latitude: 120
+  longitude: 6.18
+  categoryId: 1
+  hasWifi: true
+  hasPowerOutlets: false
+  noiseLevel: quiet
+}

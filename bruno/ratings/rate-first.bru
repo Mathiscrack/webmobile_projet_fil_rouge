@@ -1,0 +1,21 @@
+meta {
+  name: Rate place - 1st rating (NEW)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/places/{{createdPlaceId}}/ratings
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{rater2AccessToken}}
+}
+
+body:json {
+  {
+    "score": 3
+  }
+}

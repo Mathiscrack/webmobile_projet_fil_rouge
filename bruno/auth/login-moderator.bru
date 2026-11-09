@@ -1,0 +1,24 @@
+meta {
+  name: Login - moderator
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "moderator@topspot.dev",
+    "password": "moderator-demo-pwd"
+  }
+}
+
+script:post-response {
+  if (res.body.success) {
+    bru.setEnvVar("moderatorAccessToken", res.body.data.accessToken);
+  }
+}

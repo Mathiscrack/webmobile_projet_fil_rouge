@@ -1,0 +1,15 @@
+meta {
+  name: Get place - myRating is set
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/places/{{createdPlaceId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{rater2AccessToken}}
+}

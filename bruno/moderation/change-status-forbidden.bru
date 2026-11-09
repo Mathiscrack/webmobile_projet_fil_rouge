@@ -1,0 +1,21 @@
+meta {
+  name: Change status - contributor token
+  type: http
+  seq: 1
+}
+
+patch {
+  url: {{baseUrl}}/places/{{createdPlaceId}}/status
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{contributorAccessToken}}
+}
+
+body:json {
+  {
+    "status": "ARCHIVED"
+  }
+}

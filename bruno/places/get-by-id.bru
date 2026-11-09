@@ -1,0 +1,15 @@
+meta {
+  name: Get place by id
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/places/{{createdPlaceId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{contributorAccessToken}}
+}

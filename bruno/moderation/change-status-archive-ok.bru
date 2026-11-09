@@ -1,0 +1,21 @@
+meta {
+  name: Change status - ARCHIVED on a CONFIRMED place
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{baseUrl}}/places/{{createdPlaceId}}/status
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{moderatorAccessToken}}
+}
+
+body:json {
+  {
+    "status": "ARCHIVED"
+  }
+}
