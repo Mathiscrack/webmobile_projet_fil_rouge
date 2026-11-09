@@ -1,4 +1,4 @@
-import { Category } from "@domain/category";
+import { Category } from "@domain/Category";
 import type { DataSource } from "typeorm";
 
 export async function seed(dataSource: DataSource): Promise<void> {

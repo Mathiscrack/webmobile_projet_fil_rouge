@@ -1,4 +1,4 @@
-import { Category } from "@domain/category";
+import { Category } from "@domain/Category";
 import { DataSource } from "typeorm";
 
 export const dataSource = new DataSource({
