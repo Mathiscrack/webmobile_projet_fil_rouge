@@ -7,6 +7,7 @@ import { secureHeaders } from "hono/secure-headers";
 import { errorResponse } from "@presentation/http/response";
 import { homeRoutes } from "@presentation/http/routes/homeRoutes";
 import { healthRoutes } from "@presentation/http/routes/healthRoutes";
+import { categoryRoutes } from "@presentation/http/routes/categoryRoutes";
 
 const DEFAULT_UPLOAD_DIR = "/app/uploads";
 
@@ -27,6 +28,7 @@ export function createApp() {
 
   app.route("/", homeRoutes);
   app.route("/health", healthRoutes);
+  app.route("/categories", categoryRoutes);
 
   app.notFound((c) => c.json(errorResponse("Route not found"), 404));
 
