@@ -1,3 +1,4 @@
+import { Category } from "@domain/category";
 import { DataSource } from "typeorm";
 
 export const dataSource = new DataSource({
@@ -7,6 +8,6 @@ export const dataSource = new DataSource({
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  entities: [],
+  entities: [Category],
   synchronize: process.env.NODE_ENV !== "production",
 });
